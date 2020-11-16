@@ -1,0 +1,36 @@
+server:
+  port: 9000
+
+security:
+  oauth2:
+    client:
+      client-id: 713890255399-q8hfr52vv2qp49oeglk5p6rjoerkuil6.apps.googleusercontent.com
+      client-secret: Lx_LoK5FaATKOGPBg4pQYCw6
+      access-token-uri: https://www.googleapis.com/oauth2/v3/token
+      user-authorization-uri: https://accounts.google.com/o/oauth2/auth
+      token-name: oauth_token
+      authentication-scheme: query
+      client-authentication-scheme: form
+      scope:
+        - profile email
+    resource:
+      user-info-uri: https://www.googleapis.com/userinfo/v2/me
+      prefer-token-info: false
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2_console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  output:
+    ansi:
+      enabled: ALWAYS
